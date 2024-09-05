@@ -1,0 +1,53 @@
+﻿@addTagHelper * , Microsoft.AspNetCore.MVC.TagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/css/bootstrap.min.css"  
+          rel="stylesheet" />
+</head>
+<body>
+    @*Start Header*@
+  @*   <center>
+        <div class="mt-5">
+            <a href="/Home/Index" class="btn btn-danger">Home</a>
+            <a href="/Home/AboutUs" class="btn btn-primary">About Us</a>
+            <a href="/Home/ContactUs" class="btn btn-success">Contact Us</a>
+            <a href="/Home/Privacy" class="btn btn-warning">Privacy</a>
+        </div>
+    </center> *@
+
+
+    @*End Header*@
+
+    @*HTML Helper*@
+  @*   <center>
+        <div class="mt-5">
+            @Html.ActionLink("Home", "Index", "Home",null, new {@class="btn btn-danger"})
+            @Html.ActionLink("AboutUs", "Index", "AboutUs", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("ContactUs", "Index", "ContactUs", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Privacy", "Index", "Privacy", null, new { @class = "btn btn-warning" })
+        </div>
+    </center> *@
+
+    @*Tag Helper*@
+    <center>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-danger">Home</a>
+    <a asp-controller="Home" asp-action="AboutUs" class="btn btn-primary">About Us</a>
+    <a asp-controller="Home" asp-action="ContactUs"  class="btn btn-success">Contact Us</a>
+    <a asp-controller="Home" asp-action="Privacy" class="btn btn-warning">Privacy</a>
+    <div>
+    </center>
+        @RenderBody()
+    </div>
+    @*Start Footer*@
+    <center>
+        <div class="mt-5">
+            <p>CopyRights &copy; Route @DateTime.Now.Year</p>
+        </div>
+    </center>
+    @*End Footer*@
+</body>
+</html>
